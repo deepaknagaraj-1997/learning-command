@@ -1,5 +1,7 @@
 name: Hello World
 
+run-name: ${{ github.actor }} on ${{ github.ref }}
+
 on: push
 
 jobs:
