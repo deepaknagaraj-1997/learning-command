@@ -1,7 +1,7 @@
 name: Hello World
 run-name: ${{ github.actor }}
 
-on: issues
+on: pull_request
 
 jobs:
   build:
@@ -10,3 +10,6 @@ jobs:
     steps:
     - name: Display "Hello World"
       run: echo "Hello World"
+
+    - name: Display "DateTime"
+      run: date
