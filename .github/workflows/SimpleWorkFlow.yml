@@ -1,13 +1,12 @@
 name: Hello World
-
-run-name: ${{ github.actor }} on ${{ github.ref }}
+run-name: ${{ github.actor }}
 
 on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Display "Hello World"
       run: echo "Hello World"
