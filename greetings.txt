@@ -4,3 +4,4 @@ Greetings! How are you doing today?
 Hi there! Just wanted to say a quick hello.
 Good evening!
 Good afternoon!
+Greetings!
