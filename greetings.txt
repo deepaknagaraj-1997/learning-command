@@ -6,4 +6,7 @@ Good evening!
 Good afternoon!
 Greetings!
 What's up?
+<<<<<<< HEAD
 Hello india
+=======
+>>>>>>> d555627e3dd24afc416111c12f2fe106b8a47b62
