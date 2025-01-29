@@ -1,7 +1,7 @@
 name: Hello World
 run-name: ${{ github.actor }}
 
-on: push
+on: issues
 
 jobs:
   build:
