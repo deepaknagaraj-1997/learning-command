@@ -1,0 +1,20 @@
+name: Log Event and Actor
+
+on: [push]
+
+jobs:
+  log-event-and-actor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log github.event_name and github.actor
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+
+      - name: Set custom workflow variable USER
+        run: echo "USER=${{ github.actor }}" >> $GITHUB_ENV
+
+      - name: Print the USER variable
+        env:
+          USER: ${{ env.USER }}
+        run: echo "USER is $USER"
