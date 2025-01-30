@@ -23,6 +23,7 @@ jobs:
             echo "DEPLOY_ENV=staging" >> $GITHUB_ENV  # Set DEPLOY_ENV to staging for development branch
           else
             echo "DEPLOY_ENV=unknown" >> $GITHUB_ENV  # Set DEPLOY_ENV to unknown for other branches
+          fi
 
       # Step to log the value of DEPLOY_ENV
       - name: Log DEPLOY_ENV
