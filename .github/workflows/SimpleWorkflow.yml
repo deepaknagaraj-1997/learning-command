@@ -1,8 +1,7 @@
 name: Hello World
 run-name: ${{ github.actor }}
 
-on: 
-  pull_request_review
+on: pull_request_review
   
 jobs:
   build:
