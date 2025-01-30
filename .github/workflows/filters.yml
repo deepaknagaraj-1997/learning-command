@@ -22,7 +22,7 @@ on:
     types: [opened]
 
 jobs:
-  deploy:
+  run-job-filters:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
