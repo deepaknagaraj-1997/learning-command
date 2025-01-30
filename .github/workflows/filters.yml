@@ -5,18 +5,14 @@ on:
     branches:
       - master
       - 'release/*'
-
-    branches-ignore:
-      - 'feature/*'
+      - '!feature/*'
 
     tags:
       - 'v*.*.*'
 
     paths:
       - 'src/**'
-
-    paths-ignore:
-      - 'docs/**'
+      - '!docs/**'
 
   pull_request:
     types: [opened]
