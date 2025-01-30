@@ -1,0 +1,30 @@
+name: CI/CD Filters Pipeline
+
+on:
+  push:
+    branches:
+      - master
+      - 'release/*'
+
+    branches-ignore:
+      - 'feature/*'
+
+    tags:
+      - 'v*.*.*'
+
+    paths:
+      - 'src/**'
+
+    paths-ignore:
+      - 'docs/**'
+
+  pull_request:
+    types: [opened]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      - name: Log date
+        run: echo date  # Print the timestamp
