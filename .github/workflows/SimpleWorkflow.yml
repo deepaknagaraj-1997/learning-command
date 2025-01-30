@@ -3,7 +3,7 @@ run-name: ${{ github.actor }}
 
 on: 
   pull_request_review:
-    types: [edited]
+    types: [submitted, edited, dismissed]
   
 jobs:
   build:
