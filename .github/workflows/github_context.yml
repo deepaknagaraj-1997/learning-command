@@ -20,7 +20,6 @@ jobs:
         echo "8. github.api_url: ${{ github.api_url }}"
         echo "9. github.base_ref: ${{ github.base_ref }}"
         echo "10. github.env: ${{ github.env }}"
-        echo "11. github.event: ${{ toJson(github.event) }}"
         echo "12. github.event_name: ${{ github.event_name }}"
         echo "13. github.event_path: ${{ github.event_path }}"
         echo "14. github.graphql_url: ${{ github.graphql_url }}"
