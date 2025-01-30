@@ -1,0 +1,33 @@
+# Name of the workflow
+name: Deployment Workflow
+
+# Trigger the workflow on push events to the specified branches
+on:
+  push:
+    branches:
+      - master       # Trigger on push to the master branch
+      - development  # Trigger on push to the development branch
+
+# Define the jobs to run in the workflow
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      # Step to set the DEPLOY_ENV environment variable
+      - name: Set DEPLOY_ENV environment variable
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+            echo "DEPLOY_ENV=production" >> $GITHUB_ENV  # Set DEPLOY_ENV to production for master branch
+          elif [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
+            echo "DEPLOY_ENV=staging" >> $GITHUB_ENV  # Set DEPLOY_ENV to staging for development branch
+          else
+            echo "DEPLOY_ENV=unknown" >> $GITHUB_ENV  # Set DEPLOY_ENV to unknown for other branches
+
+      # Step to log the value of DEPLOY_ENV
+      - name: Log DEPLOY_ENV
+        run: echo "DEPLOY_ENV is $DEPLOY_ENV"  # Print the value of DEPLOY_ENV
+
+      # Step to simulate deployment using the DEPLOY_ENV value
+      - name: Simulate deployment
+        run: echo "Deploying to $DEPLOY_ENV environment"  # Simulate deployment command
