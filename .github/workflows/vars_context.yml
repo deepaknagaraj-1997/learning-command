@@ -1,0 +1,12 @@
+name: Vars Context Properties
+
+on: [push]
+
+jobs:
+  echo-context:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Echo Context Properties
+      run: |
+        echo "vars.EXAMPLE_VAR: ${{ vars.EXAMPLE_VAR }}"
