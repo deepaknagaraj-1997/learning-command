@@ -1,6 +1,6 @@
 name: Manual Trigger with Inputs Workflow
 
-run-name: Manual Trigger with Inputs Workflow for ${{input.debug}}
+run-name: Manual Trigger with Inputs Workflow - ${{inputs.debug}} environment
 
 on:
   workflow_dispatch:
