@@ -1,0 +1,21 @@
+name: Deploy to Environment
+
+run-name: run environment by - ${{inputs.TARGET}}
+
+env:
+  DEFAULT_TARGET: ${{vars.DEV}}
+
+on: 
+  workflow_dispatch:
+    inputs:
+      TARGET:
+        type: environment
+        default: ${{env.DEFAULT_TARGET}}
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: Deploy to ${{inputs.TARGET}}
+        run: echo "Selected env ${{inputs.TARGET}}"
