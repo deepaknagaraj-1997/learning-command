@@ -17,5 +17,5 @@ jobs:
       - name: Deploy to ${{inputs.TARGET}}
         run: |
           echo "Selected env ${{ inputs.TARGET }}"
-          echo "Selected config ${{ vars.CONFIG }}"
+          echo "Selected config ${{vars.CONFIG}}"
         
