@@ -12,11 +12,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+    environment: ${{ inputs.TARGET }}
     steps: 
-      - name: Deploy to ${{inputs.TARGET}}
+      - name: Deploy to ${{ inputs.TARGET }}
         run: |
           echo "Selected env - ${{ inputs.TARGET }}"
-          echo "Selected config - ${{vars.CONFIG}}"
-          echo "Selected config ${{vars}}"
-        
+          echo "Selected config - ${{ vars.CONFIG }}"       
