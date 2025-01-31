@@ -1,0 +1,21 @@
+name: Failure of need Job
+
+on: workflow_dispatch
+
+jobs:
+  echo-job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exit Code
+        run: |
+          echo "Runing Exit 0"
+          # exit 0
+
+  echo-job2:
+    needs: echo-job1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display datetime
+        run: date
