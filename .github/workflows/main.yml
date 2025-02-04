@@ -1,0 +1,75 @@
+name: Expression Workflow
+
+on: workflow_dispatch
+
+jobs:
+  job-expressions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up environment
+        run: |
+          echo "Setting up environment variables"
+          echo "MY_JSON={\"key\":\"value\"}" >> $GITHUB_ENV
+          echo "MY_ARRAY=[\"one\",\"two\",\"three\"]" >> $GITHUB_ENV
+          echo "MY_STRING=hello" >> $GITHUB_ENV
+
+      - name: Use fromJSON and toJSON
+        run: |
+          echo "Using fromJSON and toJSON"
+          JSON_OBJECT=$(echo '${{ fromJSON(env.MY_JSON) }}')
+          JSON_STRING=$(echo '${{ toJSON(fromJSON(env.MY_JSON)) }}')
+          echo "JSON Object: $JSON_OBJECT"
+          echo "JSON String: $JSON_STRING"
+  
+      - name: Use hashFiles
+        run: |
+          echo "Using hashFiles"
+          HASH=$(echo '${{ hashFiles('**/*') }}')
+          echo "Hash: $HASH"
+  
+      - name: Use success and failure
+        run: |
+          echo "Using success and failure"
+          if [ ${{ success() }} ]; then
+            echo "Previous step was successful"
+          else
+            echo "Previous step failed"
+          fi
+  
+      - name: Use always
+        run: |
+          echo "Using always"
+          if [ ${{ always() }} ]; then
+            echo "This will always run"
+          fi
+  
+      - name: Use contains, startsWith, and endsWith
+        run: |
+          echo "Using contains, startsWith, and endsWith"
+          CONTAINS=$(echo '${{ contains('hello world', 'world') }}')
+          STARTS_WITH=$(echo '${{ startsWith('hello world', 'hello') }}')
+          ENDS_WITH=$(echo '${{ endsWith('hello world', 'world') }}')
+          echo "Contains: $CONTAINS"
+          echo "Starts with: $STARTS_WITH"
+          echo "Ends with: $ENDS_WITH"
+  
+      - name: Use format
+        run: |
+          echo "Using format"
+          FORMATTED_STRING=$(echo '${{ format('Hello, {0}!', 'world') }}')
+          echo "Formatted string: $FORMATTED_STRING"
+  
+      - name: Use join
+        run: |
+          echo "Using join"
+          JOINED_STRING=$(echo '${{ join(fromJSON(env.MY_ARRAY), ", ") }}')
+          echo "Joined string: $JOINED_STRING"
+  
+      - name: Use toUpperCase and toLowerCase
+        run: |
+          echo "Using toUpperCase and toLowerCase"
+          UPPERCASE=$(echo '${{ toUpperCase(env.MY_STRING) }}')
+          LOWERCASE=$(echo '${{ toLowerCase(env.MY_STRING) }}')
+          echo "Uppercase: $UPPERCASE"
+          echo "Lowercase: $LOWERCASE"
